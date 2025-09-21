@@ -8,4 +8,7 @@ node_modules/
 dist/
 
 # Images temporaires
-assets/images/tmp/
+assets/images/tmp/-e 
+# Environment files
+*.env
+*.env.*
