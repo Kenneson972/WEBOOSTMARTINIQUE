@@ -1,6 +1,5 @@
-<file>
-<absolute_file_name>/app/assets/css/responsive.css</absolute_file_name>
-<content_replace>@media (max-width:1024px){
+/* Responsive */
+@media (max-width:1024px){
   .hero-inner{grid-template-columns:1fr}
 }
 @media (max-width:768px){
@@ -21,5 +20,3 @@
   .guarantees{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
 }
-</content_replace>
-</file>
