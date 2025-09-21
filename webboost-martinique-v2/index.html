@@ -6,12 +6,12 @@
   <title>Sites Web Martinique | 7-12 jours | WebBoost Martinique</title>
   <meta name="description" content="Création de sites web en 7-12 jours en Martinique. Expertise locale, garantie satisfait, paiement échelonné. Devis gratuit.">
   <meta name="keywords" content="site web martinique, création site internet, développeur martinique, agence web martinique">
-  <meta name="theme-color" content="#007bff">
+  <meta name="theme-color" content="#0ea5e9">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/main.css">
@@ -21,7 +21,7 @@
 
   <!-- Icons -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfK3mUOdfz8Gk5Bq6QUpkQ4lY2FvT2C0QWJr9g8vY3cQf5r3uC0XGxUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header class="site-header">
@@ -41,80 +41,96 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>Votre site web martiniquais en 7-12 jours</h1>
-          <p class="subtitle">Rapide. Local. Garantie totale. Paiement échelonné 50/40/10.</p>
-          <div class="cta-group">
-            <a href="#contact" class="btn btn-primary">Demander un devis</a>
-            <a href="#packs" class="btn btn-outline">Voir les packs</a>
+    <!-- Hero moderne -->
+    <section class="hero-modern" id="hero">
+      <div class="floating-shapes">
+        <span class="floating-shape shape-1"></span>
+        <span class="floating-shape shape-2"></span>
+        <span class="floating-shape shape-3"></span>
+      </div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Votre site web martiniquais <span class="gradient-text">en 7-12 jours</span></h1>
+        <p class="hero-subtitle">Rapide. Local. Garantie totale. Paiement échelonné 50/40/10.</p>
+        <div class="hero-stats">
+          <div class="stat-card" data-animate-counter="95">
+            <div class="stat-number">0</div>
+            <div class="stat-suffix">%</div>
+            <div class="stat-label">Clients satisfaits</div>
           </div>
-          <ul class="value-props">
-            <li><i class="fa fa-bolt"></i> Délais express 7-12 jours</li>
-            <li><i class="fa fa-shield"></i> Garantie 15 jours satisfait ou remboursé</li>
-            <li><i class="fa fa-location-dot"></i> Expertise 100% locale</li>
-          </ul>
+          <div class="stat-card" data-animate-counter="12">
+            <div class="stat-number">0</div>
+            <div class="stat-suffix">jours</div>
+            <div class="stat-label">Livraison max</div>
+          </div>
+          <div class="stat-card" data-animate-counter="15">
+            <div class="stat-number">0</div>
+            <div class="stat-suffix">j</div>
+            <div class="stat-label">Garantie remboursé</div>
+          </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-card">
-            <h3>Performance mobile</h3>
-            <p>Lighthouse 95+, SEO local optimisé.</p>
-          </div>
-          <div class="hero-card">
-            <h3>Conversion</h3>
-            <p>CTA clairs, tracking GA4 & Hotjar.</p>
-          </div>
+        <div class="hero-cta">
+          <button class="btn-primary-glow" onclick="startOrder()">Créer mon site maintenant<span class="btn-shine"></span></button>
+          <button class="btn btn-outline" onclick="scrollToContact()">Parler à Élise</button>
         </div>
       </div>
     </section>
 
-    <!-- Packs -->
-    <section id="packs" class="section">
+    <!-- Packs premium -->
+    <section id="packs" class="section packs-section">
       <div class="container">
         <h2>Choisissez votre pack</h2>
         <p class="section-desc">Trois offres simples pour aller vite et bien. Paiement 50/40/10.</p>
-        <div class="cards-grid three">
-          <div class="card pricing">
-            <h3>Essentiel</h3>
-            <div class="price">890€</div>
-            <ul class="features">
-              <li>3 pages clés</li>
-              <li>Design responsive</li>
-              <li>SEO local</li>
-              <li>1 révision</li>
+        <div class="packs-grid">
+          <!-- Essentiel -->
+          <div class="pack-card pack-essentiel" data-animate="fadeInUp">
+            <div class="pack-header">
+              <h3 class="pack-title">Essentiel</h3>
+              <div class="pack-price"><span class="price-amount" data-animate-counter="890">0</span><span class="price-currency">€ TTC</span></div>
+            </div>
+            <ul class="pack-features">
+              <li class="feature-item"><i class="fa fa-check"></i> 3 pages clés</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Design responsive</li>
+              <li class="feature-item"><i class="fa fa-check"></i> SEO local</li>
+              <li class="feature-item"><i class="fa fa-check"></i> 1 révision</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">Choisir ce pack</a>
+            <button class="btn-pack" data-pack="essentiel">Choisir ce pack<div class="ripple-effect"></div></button>
           </div>
-          <div class="card pricing featured">
-            <div class="badge">Populaire</div>
-            <h3>Pro</h3>
-            <div class="price">1290€</div>
-            <ul class="features">
-              <li>5-6 pages</li>
-              <li>SEO étendu</li>
-              <li>2 révisions</li>
-              <li>Suivi conversion</li>
+
+          <!-- Pro (populaire) -->
+          <div class="pack-card pack-pro pack-popular" data-animate="fadeInUp">
+            <div class="pack-badge"><span class="badge-popular">Populaire</span></div>
+            <div class="pack-header">
+              <h3 class="pack-title">Pro</h3>
+              <div class="pack-price"><span class="price-amount" data-animate-counter="1290">0</span><span class="price-currency">€ TTC</span></div>
+            </div>
+            <ul class="pack-features">
+              <li class="feature-item"><i class="fa fa-check"></i> 5-6 pages</li>
+              <li class="feature-item"><i class="fa fa-check"></i> SEO étendu</li>
+              <li class="feature-item"><i class="fa fa-check"></i> 2 révisions</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Suivi conversion</li>
             </ul>
-            <a href="#contact" class="btn btn-primary">Choisir ce pack</a>
+            <button class="btn-pack primary" data-pack="pro">Choisir ce pack<div class="ripple-effect"></div></button>
           </div>
-          <div class="card pricing">
-            <h3>Premium</h3>
-            <div class="price">1790€</div>
-            <ul class="features">
-              <li>6-8 pages</li>
-              <li>Conversion optimisée</li>
-              <li>Formation 45 min</li>
-              <li>Suivi avancé</li>
+
+          <!-- Premium -->
+          <div class="pack-card pack-premium" data-animate="fadeInUp">
+            <div class="pack-header">
+              <h3 class="pack-title">Premium</h3>
+              <div class="pack-price"><span class="price-amount" data-animate-counter="1790">0</span><span class="price-currency">€ TTC</span></div>
+            </div>
+            <ul class="pack-features">
+              <li class="feature-item"><i class="fa fa-check"></i> 6-8 pages</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Conversion optimisée</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Formation 45 min</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Suivi avancé</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">Choisir ce pack</a>
+            <button class="btn-pack" data-pack="premium">Choisir ce pack<div class="ripple-effect"></div></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Garanties -->
+    <!-- Garanties / Process / Témoignages / FAQ / Contact (sections existantes allégées) -->
     <section class="section alt">
       <div class="container guarantees">
         <div class="g-item"><i class="fa fa-shield"></i><h4>Garantie 15j</h4><p>Satisfait ou remboursé sans discussion.</p></div>
@@ -124,7 +140,6 @@
       </div>
     </section>
 
-    <!-- Process -->
     <section id="process" class="section">
       <div class="container">
         <h2>Notre process express en 6 étapes</h2>
@@ -139,19 +154,42 @@
       </div>
     </section>
 
-    <!-- Témoignages -->
     <section id="temoignages" class="section alt">
       <div class="container">
         <h2>Ils nous font confiance</h2>
-        <div class="cards-grid three">
-          <div class="card testimonial"><p>“Service rapide et pro, super résultat !”</p><div class="t-meta"><strong>Sarah</strong> — Artisan</div></div>
-          <div class="card testimonial"><p>“Tracking bien mis en place, on voit les leads.”</p><div class="t-meta"><strong>Lucas</strong> — Immobilier</div></div>
-          <div class="card testimonial"><p>“On a livré en 10 jours, bluffant.”</p><div class="t-meta"><strong>Jade</strong> — Tourisme</div></div>
+        <div class="testimonials-modern">
+          <div class="testimonials-slider" id="testimonialsSlider">
+            <div class="testimonial-card active">
+              <div class="testimonial-content">
+                <div class="stars-rating" data-rating="5"><div class="stars-fill"></div></div>
+                <blockquote>“Service rapide et pro, super résultat !”</blockquote>
+                <cite><div class="avatar placeholder"></div><div class="cite-info"><strong>Sarah M.</strong><span>Artisan • Fort-de-France</span></div></cite>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="stars-rating" data-rating="5"><div class="stars-fill"></div></div>
+                <blockquote>“Tracking bien mis en place, on voit les leads.”</blockquote>
+                <cite><div class="avatar placeholder"></div><div class="cite-info"><strong>Lucas R.</strong><span>Immobilier</span></div></cite>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="stars-rating" data-rating="5"><div class="stars-fill"></div></div>
+                <blockquote>“On a livré en 10 jours, bluffant.”</blockquote>
+                <cite><div class="avatar placeholder"></div><div class="cite-info"><strong>Jade T.</strong><span>Tourisme</span></div></cite>
+              </div>
+            </div>
+          </div>
+          <div class="testimonials-nav" id="testimonialsNav">
+            <button class="nav-dot active" data-slide="0"></button>
+            <button class="nav-dot" data-slide="1"></button>
+            <button class="nav-dot" data-slide="2"></button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq" class="section">
       <div class="container">
         <h2>FAQ</h2>
@@ -166,7 +204,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="section alt">
       <div class="container contact">
         <div class="contact-copy">
@@ -203,7 +240,7 @@
     </div>
   </footer>
 
-  <!-- Chatbot Widget (disponible sur toutes les pages) -->
+  <!-- Chatbot Widget -->
   <div id="chatbot-widget">
     <button id="chat-fab" class="chat-fab" onclick="toggleChat(event)">
       <i class="fa-solid fa-message"></i>
