@@ -1,31 +1,51 @@
-/* Chatbot Widget - Thème Luxe Noir & Jaune */
+/* Chatbot Widget - Thème Luxe Noir & Jaune (raffiné mobile) */
 #chatbot-widget{position:fixed;inset:auto 16px 16px auto;z-index:80}
+/* Backdrop overlay quand ouvert (sans JS) */
+#chatbot-widget.chat-open::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px);z-index:79}
+
 .chat-fab{width:56px;height:56px;border-radius:50%;border:0;background:var(--primary);color:#111;box-shadow:0 10px 20px rgba(245,197,24,.35);cursor:pointer}
-.chat-panel{position:fixed;right:16px;bottom:84px;width:min(380px,92vw);height:520px;background:var(--surface);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.45);display:none;grid-template-rows:auto 1fr auto;overflow:hidden;border:1px solid #2a2a2a}
+.chat-fab:active{transform:translateY(1px)}
+
+.chat-panel{position:fixed;right:16px;bottom:84px;width:min(380px,92vw);height:520px;background:var(--surface);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.55);display:none;grid-template-rows:auto 1fr auto;overflow:hidden;border:1px solid #2a2a2a;animation:chatIn .25s ease both}
 .chat-panel.active{display:grid}
-.chat-panel.fullscreen{inset:20px;right:20px;bottom:20px;left:auto;width:auto;height:auto}
-.chat-header{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #2a2a2a;background:var(--surface-2);color:#f3f4f6}
+@keyframes chatIn{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+
+.chat-header{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #2a2a2a;background:linear-gradient(180deg,var(--surface-2),#111);color:#f3f4f6}
 .chat-title{display:grid;line-height:1}
 .chat-title strong{font-size:14px;color:#fefce8}
 .chat-title span{font-size:12px;color:#a3a3a3}
 .chat-actions .icon-btn{border:0;background:#1a1a1a;width:34px;height:34px;border-radius:10px;margin-left:8px;cursor:pointer;color:#e5e7eb}
+.chat-actions .icon-btn:active{transform:translateY(1px)}
+
 .chat-messages{padding:14px;background:#0f0f0f;overflow:auto}
-.message{display:flex;gap:8px;margin-bottom:10px}
-.message-bubble{max-width:78%;padding:10px 12px;border-radius:14px;color:#e5e7eb}
+.message{display:flex;gap:8px;margin-bottom:10px;opacity:0;transform:translateY(6px)}
+@keyframes msgIn{to{opacity:1;transform:none}}
+.user-message{animation:msgIn .24s ease forwards .08s}
+.elise-message{animation:msgIn .28s ease forwards .18s}
+
+.message-bubble{max-width:78%;padding:10px 12px;border-radius:14px;line-height:1.55;font-size:14px}
+.message-bubble a{color:var(--primary-500);text-decoration:underline}
 .elise-bubble{background:#161616;border:1px solid #2a2a2a}
 .user-bubble{background:var(--primary);color:#111;border-top-right-radius:4px}
 
-/* Typing */
-.typing-message{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+/* Typing plus élégant */
+.typing-message{display:flex;gap:8px;align-items:center;margin-bottom:8px;opacity:.9}
 .typing-bubble{background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:8px}
 .typing-dots{display:flex;gap:4px}
 .typing-dots .dot{width:6px;height:6px;border-radius:50%;background:#6b7280;animation:blink 1.2s infinite ease-in-out}
 .typing-dots .dot:nth-child(2){animation-delay:.15s}
 .typing-dots .dot:nth-child(3){animation-delay:.3s}
 .typing-text{font-size:12px;color:#a3a3a3}
-@keyframes blink{0%,80%,100%{opacity:.4}40%{opacity:1}}
+@keyframes blink{0%,80%,100%{opacity:.35}40%{opacity:1}}
 
 /* Input */
 .chat-input{display:flex;gap:10px;border-top:1px solid #2a2a2a;padding:10px;background:var(--surface-2)}
-.chat-input textarea{flex:1;resize:none;border:1px solid #2a2a2a;border-radius:12px;padding:10px 12px;height:44px;font:inherit;background:#0f0f0f;color:#f3f4f6}
-.chat-input .btn{height:44px;background:var(--primary);color:#111;border:0}
+.chat-input textarea{flex:1;resize:none;border:1px solid #2a2a2a;border-radius:12px;padding:12px;height:44px;font:inherit;background:#0f0f0f;color:#f3f4f6}
+.chat-input .btn{height:44px;background:var(--primary);color:#111;border:0;border-radius:12px}
+
+/* Mobile amélioration */
+@media (max-width:768px){
+  .chat-panel{right:12px;left:12px;width:auto;height:min(72vh,560px);bottom:90px}
+  .chat-input textarea{height:56px}
+  .chat-fab{width:58px;height:58px}
+}
