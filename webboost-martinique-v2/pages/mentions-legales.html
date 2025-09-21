@@ -1,8 +1,28 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mentions légales - WebBoost Martinique</title><link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/components.css"><link rel="stylesheet" href="../assets/css/responsive.css"></head>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mentions légales - WebBoost Martinique</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/components.css"><link rel="stylesheet" href="../assets/css/chatbot.css"><link rel="stylesheet" href="../assets/css/responsive.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 <body>
 <header class="site-header"><div class="container header-inner"><div class="logo">WebBoost <span>Martinique</span></div><a href="../index.html" class="btn btn-outline">Retour</a></div></header>
 <main class="section"><div class="container"><h1>Mentions légales</h1><p>Contenu à compléter.</p></div></main>
 <footer class="site-footer"><div class="container footer-inner">© <span id="year"></span> WebBoost Martinique</div></footer>
+
+<!-- Chatbot Widget -->
+<div id="chatbot-widget">
+  <button id="chat-fab" class="chat-fab" onclick="toggleChat(event)"><i class="fa-solid fa-message"></i></button>
+  <div id="chat-panel" class="chat-panel">
+    <div class="chat-header">
+      <div class="elise-avatar"></div>
+      <div class="chat-title"><strong>Élise</strong><span>Conseillère WebBoost</span></div>
+      <div class="chat-actions">
+        <button id="fullscreen-btn" class="icon-btn" aria-label="Plein écran"><i class="fa-solid fa-expand"></i></button>
+        <button class="icon-btn" onclick="toggleChat(event)" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input"><textarea id="message-input" placeholder="Écrivez votre message..."></textarea><button id="send-message-btn" class="btn btn-primary">Envoyer</button></div>
+  </div>
+  <div id="chat-notification" class="chat-notification" style="display:none;"></div>
+  <div id="elise-profile-modal" class="modal"><div class="modal-content"><button class="modal-close" onclick="closeEliseProfile()"><i class="fa fa-xmark"></i></button><div class="modal-header"><div class="elise-avatar large"></div><div><h3>Élise Morel</h3><p>Conseillère WebBoost Martinique</p></div></div><div class="modal-body"><p>Experte en création de sites web performants en Martinique. Délais express, SEO local, et accompagnement humain.</p></div></div></div>
+</div>
 <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+<script src="../assets/js/chatbot.js" defer></script>
 </body></html>
