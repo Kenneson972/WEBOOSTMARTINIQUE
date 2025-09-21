@@ -3,9 +3,9 @@
 <content_replace>
 /* Header */
 .site-header{position:sticky;top:0;background:rgba(0,0,0,.6);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid #232323;z-index:50}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;padding:0 6px}
 .logo{display:inline-flex;align-items:center;gap:10px}
-.logo img{height:40px;width:auto;display:block}
+.logo img{display:block;height:34px;width:auto;max-width:180px}
 .main-nav a{color:var(--text);margin:0 10px;text-decoration:none;font-weight:600}
 .main-nav .btn{margin-left:8px}
 .nav-toggle{display:none;border:0;background:transparent;font-size:22px;color:var(--text)}

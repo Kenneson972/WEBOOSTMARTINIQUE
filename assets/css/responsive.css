@@ -1,17 +1,25 @@
-@media (max-width:1024px){
+<file>
+<absolute_file_name>/app/assets/css/responsive.css</absolute_file_name>
+<content_replace>@media (max-width:1024px){
   .hero-inner{grid-template-columns:1fr}
 }
 @media (max-width:768px){
   .nav-toggle{display:block}
-  .main-nav{position:fixed;top:64px;right:0;background:#fff;border-left:1px solid #eef1f6;border-bottom:1px solid #eef1f6;display:none;flex-direction:column;padding:12px}
+  .main-nav{position:fixed;top:64px;right:0;background:#0f0f0f;border-left:1px solid #232323;border-bottom:1px solid #232323;display:none;flex-direction:column;padding:12px}
   .main-nav.open{display:flex}
   .cards-grid.three{grid-template-columns:1fr}
   .guarantees{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr 1fr 1fr}
   .contact{grid-template-columns:1fr}
   .contact-form .grid{grid-template-columns:1fr}
+  .logo img{height:28px}
+}
+@media (min-width:1024px){
+  .logo img{height:40px}
 }
 @media (max-width:420px){
   .guarantees{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
 }
+</content_replace>
+</file>
