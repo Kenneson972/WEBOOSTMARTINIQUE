@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://weboostmartinique.com/sitemap.xml
