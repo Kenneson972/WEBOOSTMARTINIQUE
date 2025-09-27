@@ -188,26 +188,6 @@
       </div>
     </section>
 
-    <!-- Chatbot highlight -->
-    <section class="section chatbot-highlight alt">
-      <div class="container ch-grid">
-        <div class="ch-copy">
-          <h2>Conseillère WebBoost Martinique — en ligne</h2>
-          <p>Élise peut vous aider à :</p>
-          <ul>
-            <li><i class="fa fa-check"></i> Choisir le pack adapté</li>
-            <li><i class="fa fa-check"></i> Estimer un délai</li>
-            <li><i class="fa fa-check"></i> Répondre sur les paiements</li>
-          </ul>
-          <button class="btn btn-primary" data-open-order>Parler à Élise</button>
-          <div class="micro-trust-inline"><i class="fa fa-shield"></i> Réponses rapides · <i class="fa fa-clock"></i> 7j/7</div>
-        </div>
-        <div class="ch-visual">
-          <div class="card demo-chat"><div class="elise-avatar"></div><div><strong>Élise</strong><p>Bonjour ! Comment puis-je vous aider ?</p></div></div>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section id="faq" class="section">
       <div class="container">
@@ -217,41 +197,7 @@
           <details><summary>Quels sont les délais ?</summary><p>Entre 7 et 12 jours selon le pack choisi.</p></details>
           <details><summary>Quelles modalités de paiement ?</summary><p>50% à la commande, 40% à la validation, 10% à la mise en ligne. Paiement sécurisé.</p></details>
           <details><summary>L'accompagnement SEO local est-il inclus ?</summary><p>Oui, SEO local inclus et options avancées disponibles.</p></details>
-          <details><summary>Et si je ne suis pas satisfait ?</summary><p>Garantie 15 jours satisfait ou remboursé.</p></details>
         </div>
-      </div>
-    </section>
-
-    <!-- CTA final -->
-    <section class="cta-final" aria-label="Commandez maintenant">
-      <div class="container cta-final-inner">
-        <h3>Commandez maintenant et recevez votre site en 7–12 jours</h3>
-        <button class="btn btn-primary" data-open-order>Devis gratuit et sans engagement</button>
-        <div class="micro-trust-inline"><i class="fa fa-lock"></i> Paiement sécurisé · <i class="fa fa-rotate"></i> Satisfait ou remboursé 15 j</div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section alt">
-      <div class="container contact">
-        <div class="contact-copy">
-          <h2>Parlons de votre projet</h2>
-          <p>Expliquez-nous votre besoin, on revient vers vous sous 24h.</p>
-          <ul class="contact-channels">
-            <li><i class="fa fa-phone"></i> 06 00 00 00 00</li>
-            <li><i class="fa fa-envelope"></i> contact@weboostmartinique.com</li>
-            <li><i class="fa-brands fa-whatsapp"></i> WhatsApp disponible</li>
-          </ul>
-        </div>
-        <form id="contactForm" class="contact-form">
-          <div class="grid">
-            <label>Nom<input required name="name" type="text" placeholder="Votre nom"></label>
-            <label>Email<input required name="email" type="email" placeholder="vous@domaine.com"></label>
-          </div>
-          <label>Message<textarea required name="message" rows="5" placeholder="Parlez-nous de votre projet..."></textarea></label>
-          <button type="submit" class="btn btn-primary">Envoyer</button>
-          <p class="form-hint">Envoi côté serveur (02switch). En preview GitHub Pages, un message de fallback s'affiche.</p>
-        </form>
       </div>
     </section>
   </main>
@@ -268,12 +214,123 @@
     </div>
   </footer>
 
+  <!-- Order Flow Modal -->
+  <div id="order-overlay"></div>
+  <div id="order-modal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+    <div class="order-header">
+      <div class="order-title" id="orderTitle">Commande de site</div>
+      <button class="order-close" data-close-order aria-label="Fermer"><i class="fa fa-xmark"></i></button>
+    </div>
+    <div class="order-progress"><div class="bar" id="order-progress"></div></div>
+    <form id="orderForm" class="order-body">
+      <!-- Step 1: Pack -->
+      <div class="order-step" data-step="1">
+        <h4>1) Choisissez votre pack</h4>
+        <div class="order-packs">
+          <label class="order-pack"><input type="radio" name="order_pack" value="essentiel"> Essentiel Local — 890€</label>
+          <label class="order-pack"><input type="radio" name="order_pack" value="pro"> Vitrine Pro — 1290€</label>
+          <label class="order-pack"><input type="radio" name="order_pack" value="premium"> Vitrine Conversion — 1790€</label>
+        </div>
+      </div>
+      <!-- Step 2: Options -->
+      <div class="order-step" data-step="2">
+        <h4>2) Options à la carte</h4>
+        <div class="order-options">
+          <label class="order-opt"><input type="checkbox" name="order_options" value="Blog"> Blog</label>
+          <label class="order-opt"><input type="checkbox" name="order_options" value="Google Business"> Google Business</label>
+          <label class="order-opt"><input type="checkbox" name="order_options" value="Bilingue FR/EN"> Bilingue FR/EN</label>
+          <label class="order-opt"><input type="checkbox" name="order_options" value="Maintenance"> Maintenance</label>
+          <label class="order-opt"><input type="checkbox" name="order_options" value="Logo"> Logo</label>
+          <label class="order-opt"><input type="checkbox" name="order_options" value="Rédaction SEO"> Rédaction SEO</label>
+        </div>
+      </div>
+      <!-- Step 3: Infos client -->
+      <div class="order-step" data-step="3">
+        <h4>3) Vos informations</h4>
+        <div class="order-grid">
+          <label>Nom complet<input id="order_name" type="text" placeholder="Votre nom"></label>
+          <label>Email<input id="order_email" type="email" placeholder="vous@domaine.com"></label>
+          <label>Téléphone<input id="order_phone" type="text" placeholder="06 xx xx xx xx"></label>
+          <label>Entreprise<input id="order_company" type="text" placeholder="Votre société (optionnel)"></label>
+        </div>
+      </div>
+      <!-- Step 4: Projet -->
+      <div class="order-step" data-step="4">
+        <h4>4) Votre projet</h4>
+        <div class="order-grid">
+          <label>Détails du projet<textarea id="order_details" placeholder="Décrivez brièvement votre projet"></textarea></label>
+          <label>Budget estimé<select id="order_budget"><option value="">Sélectionner</option><option>&lt; 1000€</option><option>1000€ - 2000€</option><option>2000€ - 3000€</option><option>&gt; 3000€</option></select></label>
+          <label>Deadline<select id="order_deadline"><option value="">Sélectionner</option><option>7-12 jours</option><option>2-3 semaines</option><option>1 mois</option></select></label>
+          <label><input type="checkbox" id="order_consent"> J’accepte la <a href="pages/politique-confidentialite.html" target="_blank">politique de confidentialité</a></label>
+        </div>
+      </div>
+      <!-- Step 5: Récap -->
+      <div class="order-step" data-step="5">
+        <h4>5) Récapitulatif</h4>
+        <div id="order-summary-box" class="order-summary"></div>
+        <p style="margin-top:8px;color:#a3a3a3">Paiement échelonné 50 / 40 / 10. Livraison 7–12 jours.</p>
+      </div>
+      <!-- Actions -->
+      <div class="order-actions">
+        <button type="button" class="btn btn-outline" data-prev>Précédent</button>
+        <button type="button" class="btn btn-secondary" data-next>Suivant</button>
+        <button type="submit" class="btn btn-primary" id="order-submit">Valider ma commande</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Chatbot Widget -->
+  <div id="chatbot-widget">
+    <button id="chat-fab" class="chat-fab" onclick="toggleChat(event)">
+      <i class="fa-solid fa-message"></i>
+    </button>
+
+    <div id="chat-panel" class="chat-panel">
+      <div class="chat-header">
+        <div class="elise-avatar"></div>
+        <div class="chat-title">
+          <strong>Élise</strong>
+          <span>Conseillère WebBoost</span>
+        </div>
+        <div class="chat-actions">
+          <button id="fullscreen-btn" class="icon-btn" aria-label="Plein écran"><i class="fa-solid fa-expand"></i></button>
+          <button class="icon-btn" onclick="toggleChat(event)" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+      <div id="chat-messages" class="chat-messages"></div>
+      <div class="chat-input">
+        <textarea id="message-input" placeholder="Écrivez votre message..."></textarea>
+        <button id="send-message-btn" class="btn btn-primary">Envoyer</button>
+      </div>
+    </div>
+
+    <div id="chat-notification" class="chat-notification" style="display:none;"></div>
+
+    <!-- Modal profil Élise -->
+    <div id="elise-profile-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeEliseProfile()"><i class="fa fa-xmark"></i></button>
+        <div class="modal-header">
+          <div class="elise-avatar large"></div>
+          <div>
+            <h3>Élise Morel</h3>
+            <p>Conseillère WebBoost Martinique</p>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Experte en création de sites web performants en Martinique. Délais express, SEO local, et accompagnement humain.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="assets/js/analytics.js" defer></script>
   <script src="assets/js/animations.js" defer></script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/order-flow.js" defer></script>
   <script type="module" src="/src/chat-utils/openChatbot.js" defer></script>
+  <script type="module" src="/src/chat-utils/lead-flow.js" defer></script>
   <script src="assets/js/chatbot.js" defer></script>
   <script src="assets/js/contact-forms.js" defer></script>
 </body>
