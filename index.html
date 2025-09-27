@@ -1,6 +1,274 @@
-<file>
-<absolute_file_name>/app/index.html</absolute_file_name>
-<content_replace>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sites Web Martinique | 7-12 jours | WebBoost Martinique</title>
+  <meta name="description" content="Délais courts, tarifs locaux et SEO local expert. Mobile-first et performance certifiée. Devis gratuit et sans engagement.">
+  <meta name="theme-color" content="#d4af37">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/chatbot.css">
+  <link rel="stylesheet" href="assets/css/order-flow.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <!-- Icons -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="WebBoost Martinique">
+        <img src="assets/images/logo/wb-logo.png" alt="WebBoost Martinique">
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#packs">Packs</a>
+        <a href="#local">Spécial Martinique</a>
+        <a href="#compare">Comparatif</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary">Devis gratuit</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-modern" id="hero">
+      <div class="container hero-content">
+        <h1 class="hero-title">Délais courts, tarifs locaux, <span class="gradient-text">SEO local expert</span></h1>
+        <p class="hero-subtitle">Mobile-first et performance certifiée</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary-glow">Devis gratuit et sans engagement<span class="btn-shine"></span></a>
+          <a class="cta-secondary" onclick="openChatbot('lead-flow')">Perdu ? Formulaire guidé</a>
+          <span class="micro-trust">
+            <i class="fa fa-shield"></i> Livraison garantie · <i class="fa fa-rotate"></i> Satisfait ou remboursé 15 j · <i class="fa fa-lock"></i> Paiement sécurisé
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packs -->
+    <section id="packs" class="section packs-section">
+      <div class="container">
+        <h2>Packs rapides et efficaces</h2>
+        <p class="section-desc">Choisissez votre pack — Livraison garantie en 7–12 jours.</p>
+        <div class="packs-grid">
+          <div class="pack-card pack-essentiel" data-animate="fadeInUp">
+            <div class="pack-header">
+              <h3 class="pack-title">Essentiel Local</h3>
+              <div class="pack-price"><span class="price-amount">890</span><span class="price-currency">€ TTC</span></div>
+            </div>
+            <ul class="pack-features">
+              <li class="feature-item"><i class="fa fa-check"></i> 3 pages clés</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Design responsive</li>
+              <li class="feature-item"><i class="fa fa-check"></i> SEO local inclus</li>
+              <li class="feature-item"><i class="fa fa-check"></i> 1 révision</li>
+            </ul>
+            <button type="button" class="btn-pack" data-open-order data-pack="essentiel">Choisir<div class="ripple-effect"></div></button>
+          </div>
+
+          <div class="pack-card pack-pro pack-popular" data-animate="fadeInUp">
+            <div class="pack-badge"><span class="badge-popular">Populaire</span></div>
+            <div class="pack-header">
+              <h3 class="pack-title">Vitrine Pro</h3>
+              <div class="pack-price"><span class="price-amount">1290</span><span class="price-currency">€ TTC</span></div>
+            </div>
+            <ul class="pack-features">
+              <li class="feature-item"><i class="fa fa-check"></i> 5–6 pages</li>
+              <li class="feature-item"><i class="fa fa-check"></i> SEO étendu</li>
+              <li class="feature-item"><i class="fa fa-check"></i> 2 révisions</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Suivi conversion</li>
+            </ul>
+            <button type="button" class="btn-pack primary" data-open-order data-pack="pro">Choisir<div class="ripple-effect"></div></button>
+          </div>
+
+          <div class="pack-card pack-premium" data-animate="fadeInUp">
+            <div class="pack-header">
+              <h3 class="pack-title">Vitrine Conversion</h3>
+              <div class="pack-price"><span class="price-amount">1790</span><span class="price-currency">€ TTC</span></div>
+            </div>
+            <ul class="pack-features">
+              <li class="feature-item"><i class="fa fa-check"></i> 6–8 pages</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Conversion optimisée</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Formation 45 min</li>
+              <li class="feature-item"><i class="fa fa-check"></i> Suivi avancé</li>
+            </ul>
+            <button type="button" class="btn-pack" data-open-order data-pack="premium">Choisir<div class="ripple-effect"></div></button>
+          </div>
+        </div>
+
+        <div class="delivery-ribbon" aria-label="Livraison rapide">
+          <i class="fa fa-bolt"></i> Livraison en 7–12 jours
+        </div>
+
+        <div class="trust-badges">
+          <div class="badge"><i class="fa fa-lock"></i> Paiement sécurisé</div>
+          <div class="badge"><i class="fa fa-truck-fast"></i> Livraison garantie</div>
+          <div class="badge"><i class="fa fa-rotate"></i> Satisfait ou remboursé</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local -->
+    <section id="local" class="section alt local-trust">
+      <div class="container">
+        <h2>Spécial Martinique</h2>
+        <p class="section-desc">Solutions adaptées au marché martiniquais et aux TPE/PME locales.</p>
+        <div class="local-grid">
+          <div class="local-item"><i class="fa fa-clock"></i><h4>Horaires locaux</h4><p>Disponibilité alignée sur vos horaires (AST), échanges réactifs.</p></div>
+          <div class="local-item"><i class="fa fa-location-dot"></i><h4>Référencement local</h4><p>Optimisations pour recherches Martinique (maps, mots-clés, pages locales).</p></div>
+          <div class="local-item"><i class="fa fa-message"></i><h4>Messageries locales</h4><p>WhatsApp/Telegram, formulaires adaptés et livrables clairs.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparatif -->
+    <section id="compare" class="section compare">
+      <div class="container">
+        <h2>WebBoost Martinique vs Agence locale</h2>
+        <div class="compare-table">
+          <div class="compare-row compare-head">
+            <div class="compare-cell">Critères</div>
+            <div class="compare-cell highlight">WebBoost Martinique</div>
+            <div class="compare-cell">Agence locale</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell">Délais</div>
+            <div class="compare-cell highlight"><i class="fa fa-bolt"></i> 7–12 jours</div>
+            <div class="compare-cell">4–8 semaines</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell">Paiement</div>
+            <div class="compare-cell highlight">50 / 40 / 10</div>
+            <div class="compare-cell">100% ou 50 / 50</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell">Garanties</div>
+            <div class="compare-cell highlight">15 j satisfait/remboursé</div>
+            <div class="compare-cell">Variable / rare</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell">SEO local</div>
+            <div class="compare-cell highlight">Inclus</div>
+            <div class="compare-cell">Option</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process & Paiements -->
+    <section id="process" class="section process-payments">
+      <div class="container">
+        <div class="macro-process">
+          <div class="macro-step"><i class="fa fa-receipt"></i><h4>Acompte</h4><p>On lance votre projet immédiatement.</p></div>
+          <div class="macro-step"><i class="fa fa-pen-ruler"></i><h4>Validation</h4><p>Vous validez votre site finalisé.</p></div>
+          <div class="macro-step"><i class="fa fa-rocket"></i><h4>Mise en ligne</h4><p>Solde à la mise en ligne.</p></div>
+        </div>
+
+        <div class="payments-security">
+          <h3>Paiements & sécurité</h3>
+          <div class="payments-logos">
+            <span class="p-badge"><i class="fa fa-lock"></i> SSL</span>
+            <span class="p-badge"><i class="fa-brands fa-cc-stripe"></i> Stripe</span>
+            <span class="p-badge"><i class="fa-brands fa-cc-paypal"></i> PayPal</span>
+            <span class="p-badge"><i class="fa fa-credit-card"></i> 3x sans frais</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chatbot highlight -->
+    <section class="section chatbot-highlight alt">
+      <div class="container ch-grid">
+        <div class="ch-copy">
+          <h2>Conseillère WebBoost Martinique — en ligne</h2>
+          <p>Élise peut vous aider à :</p>
+          <ul>
+            <li><i class="fa fa-check"></i> Choisir le pack adapté</li>
+            <li><i class="fa fa-check"></i> Estimer un délai</li>
+            <li><i class="fa fa-check"></i> Répondre sur les paiements</li>
+          </ul>
+          <button class="btn btn-primary" data-open-order>Parler à Élise</button>
+          <div class="micro-trust-inline"><i class="fa fa-shield"></i> Réponses rapides · <i class="fa fa-clock"></i> 7j/7</div>
+        </div>
+        <div class="ch-visual">
+          <div class="card demo-chat"><div class="elise-avatar"></div><div><strong>Élise</strong><p>Bonjour ! Comment puis-je vous aider ?</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2>FAQ</h2>
+        <input type="search" id="faqSearch" class="faq-search" placeholder="Rechercher une question...">
+        <div class="faq-list" id="faqList">
+          <details><summary>Quels sont les délais ?</summary><p>Entre 7 et 12 jours selon le pack choisi.</p></details>
+          <details><summary>Quelles modalités de paiement ?</summary><p>50% à la commande, 40% à la validation, 10% à la mise en ligne. Paiement sécurisé.</p></details>
+          <details><summary>L'accompagnement SEO local est-il inclus ?</summary><p>Oui, SEO local inclus et options avancées disponibles.</p></details>
+          <details><summary>Et si je ne suis pas satisfait ?</summary><p>Garantie 15 jours satisfait ou remboursé.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="cta-final" aria-label="Commandez maintenant">
+      <div class="container cta-final-inner">
+        <h3>Commandez maintenant et recevez votre site en 7–12 jours</h3>
+        <button class="btn btn-primary" data-open-order>Devis gratuit et sans engagement</button>
+        <div class="micro-trust-inline"><i class="fa fa-lock"></i> Paiement sécurisé · <i class="fa fa-rotate"></i> Satisfait ou remboursé 15 j</div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section alt">
+      <div class="container contact">
+        <div class="contact-copy">
+          <h2>Parlons de votre projet</h2>
+          <p>Expliquez-nous votre besoin, on revient vers vous sous 24h.</p>
+          <ul class="contact-channels">
+            <li><i class="fa fa-phone"></i> 06 00 00 00 00</li>
+            <li><i class="fa fa-envelope"></i> contact@weboostmartinique.com</li>
+            <li><i class="fa-brands fa-whatsapp"></i> WhatsApp disponible</li>
+          </ul>
+        </div>
+        <form id="contactForm" class="contact-form">
+          <div class="grid">
+            <label>Nom<input required name="name" type="text" placeholder="Votre nom"></label>
+            <label>Email<input required name="email" type="email" placeholder="vous@domaine.com"></label>
+          </div>
+          <label>Message<textarea required name="message" rows="5" placeholder="Parlez-nous de votre projet..."></textarea></label>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+          <p class="form-hint">Envoi côté serveur (02switch). En preview GitHub Pages, un message de fallback s'affiche.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> WebBoost Martinique</div>
+      <nav class="footer-nav">
+        <a href="pages/mentions-legales.html">Mentions légales</a>
+        <a href="pages/cgv.html">CGV</a>
+        <a href="pages/politique-confidentialite.html">Confidentialité</a>
+        <a href="pages/a-propos.html">À propos</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="assets/js/analytics.js" defer></script>
   <script src="assets/js/animations.js" defer></script>
   <script src="assets/js/main.js" defer></script>
@@ -8,5 +276,5 @@
   <script type="module" src="/src/chat-utils/openChatbot.js" defer></script>
   <script src="assets/js/chatbot.js" defer></script>
   <script src="assets/js/contact-forms.js" defer></script>
-</content_replace>
-</file>
+</body>
+</html>
