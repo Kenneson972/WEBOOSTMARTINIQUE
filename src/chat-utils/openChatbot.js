@@ -1,27 +1,25 @@
 window.openChatbot = async function (mode = 'default') {
   try {
-    // Charge le widget principal une seule fois (chemin RELATIF pour GitHub Pages/02switch)
-    if (!window.chatWidgetLoaded) {
-      await import('../../assets/js/chatbot.js');
-      window.chatWidgetLoaded = true;
-    }
-    // Définit le mode
+    // Définir le mode (utilisé par lead-flow.js)
     window.CHAT_MODE = mode;
 
-    // Charge le flow guidé seulement si demandé (chemin relatif depuis ce fichier)
+    // Charger le flow guidé uniquement si demandé
     if (mode === 'lead-flow') {
-      await import('./lead-flow.js');
+      try { await import('./lead-flow.js'); } catch(e) { console.warn('lead-flow load error', e); }
     }
 
-    // Démarre/affiche le chat selon ce que le widget expose
-    if (typeof window.startChat === 'function') {
-      window.startChat();
+    // Ouvrir le widget (sans dépendre d'un import du widget)
+    if (window.eliseChatbot && typeof window.eliseChatbot.toggleChat === 'function') {
+      window.eliseChatbot.toggleChat();
     } else if (typeof window.toggleChat === 'function') {
       window.toggleChat();
-    } else if (window.eliseChatbot && typeof window.eliseChatbot.toggleChat === 'function') {
-      window.eliseChatbot.toggleChat();
+    } else if (typeof window.startChat === 'function') {
+      window.startChat();
     } else {
-      window.dispatchEvent(new CustomEvent('chat:open'));
+      // Fallback: simule un clic sur la fab si présente
+      const fab = document.getElementById('chat-fab');
+      if (fab) fab.click();
+      else window.dispatchEvent(new CustomEvent('chat:open'));
     }
   } catch (e) {
     console.warn('openChatbot error', e);
