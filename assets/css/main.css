@@ -1,8 +1,8 @@
 <file>
 <absolute_file_name>/app/assets/css/main.css</absolute_file_name>
-<content_append>
+<content_replace>
 /* Background image global avec overlay pour lisibilité */
 body::before{content:"";position:fixed;inset:0;z-index:-2;background:url('../images/backgrounds/site-bg.png') center/cover no-repeat}
 body::after{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg, rgba(15,26,31,.88), rgba(15,26,31,.88))}
-</content_append>
+</content_replace>
 </file>
