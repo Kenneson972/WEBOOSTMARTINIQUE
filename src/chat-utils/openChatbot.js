@@ -1,16 +1,16 @@
 window.openChatbot = async function (mode = 'default') {
   try {
-    // Charge le widget principal une seule fois
+    // Charge le widget principal une seule fois (chemin RELATIF pour GitHub Pages/02switch)
     if (!window.chatWidgetLoaded) {
-      await import('/chatbot.js');
+      await import('../../assets/js/chatbot.js');
       window.chatWidgetLoaded = true;
     }
     // Définit le mode
     window.CHAT_MODE = mode;
 
-    // Charge le flow guidé uniquement quand nécessaire
+    // Charge le flow guidé seulement si demandé (chemin relatif depuis ce fichier)
     if (mode === 'lead-flow') {
-      await import('/src/chat-utils/lead-flow.js');
+      await import('./lead-flow.js');
     }
 
     // Démarre/affiche le chat selon ce que le widget expose
