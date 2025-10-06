@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/chatbot.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  
+  <!-- Liquid Glass Theme -->
+  <link rel="stylesheet" href="assets/css/liquid-glass.css">
 
   <!-- Icons -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfK3mUOdfz8Gk5Bq6QUpkQ4lY2FvT2C0QWJr9g8vY3cQf5r3uC0XGxUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Three.js for LiquidEther -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -43,6 +49,9 @@
   <main>
     <!-- Hero -->
     <section class="hero">
+      <!-- Liquid Glass Background -->
+      <div id="liquidEtherContainer" class="liquid-ether-bg"></div>
+      
       <div class="container hero-inner">
         <div class="hero-copy">
           <h1>Votre site web martiniquais en 7-12 jours</h1>
@@ -76,7 +85,7 @@
         <h2>Choisissez votre pack</h2>
         <p class="section-desc">Trois offres simples pour aller vite et bien. Paiement 50/40/10.</p>
         <div class="cards-grid three">
-          <div class="card pricing">
+          <div class="card pricing glass-card">
             <h3>Essentiel</h3>
             <div class="price">890€</div>
             <ul class="features">
@@ -85,9 +94,10 @@
               <li>SEO local</li>
               <li>1 révision</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">Choisir ce pack</a>
+            <a href="#contact" class="btn btn-secondary glass-button">Choisir ce pack</a>
+            <div class="gradual-blur-bottom"></div>
           </div>
-          <div class="card pricing featured">
+          <div class="card pricing featured glass-card premium">
             <div class="badge">Populaire</div>
             <h3>Pro</h3>
             <div class="price">1290€</div>
@@ -97,9 +107,10 @@
               <li>2 révisions</li>
               <li>Suivi conversion</li>
             </ul>
-            <a href="#contact" class="btn btn-primary">Choisir ce pack</a>
+            <a href="#contact" class="btn btn-primary glass-button">Choisir ce pack</a>
+            <div class="gradual-blur-bottom"></div>
           </div>
-          <div class="card pricing">
+          <div class="card pricing glass-card">
             <h3>Premium</h3>
             <div class="price">1790€</div>
             <ul class="features">
@@ -108,7 +119,8 @@
               <li>Formation 45 min</li>
               <li>Suivi avancé</li>
             </ul>
-            <a href="#contact" class="btn btn-secondary">Choisir ce pack</a>
+            <a href="#contact" class="btn btn-secondary glass-button">Choisir ce pack</a>
+            <div class="gradual-blur-bottom"></div>
           </div>
         </div>
       </div>
@@ -117,10 +129,10 @@
     <!-- Garanties -->
     <section class="section alt">
       <div class="container guarantees">
-        <div class="g-item"><i class="fa fa-shield"></i><h4>Garantie 15j</h4><p>Satisfait ou remboursé sans discussion.</p></div>
-        <div class="g-item"><i class="fa fa-clock"></i><h4>Délais tenus</h4><p>7-12 jours ou remboursé.</p></div>
-        <div class="g-item"><i class="fa fa-mobile-screen-button"></i><h4>Mobile-first</h4><p>Optimisé pour 95% mobile.</p></div>
-        <div class="g-item"><i class="fa fa-chart-line"></i><h4>Performance</h4><p>LCP &lt; 2.5s, CLS &lt; 0.1.</p></div>
+        <div class="g-item glass-card"><i class="fa fa-shield"></i><h4>Garantie 15j</h4><p>Satisfait ou remboursé sans discussion.</p></div>
+        <div class="g-item glass-card"><i class="fa fa-clock"></i><h4>Délais tenus</h4><p>7-12 jours ou remboursé.</p></div>
+        <div class="g-item glass-card"><i class="fa fa-mobile-screen-button"></i><h4>Mobile-first</h4><p>Optimisé pour 95% mobile.</p></div>
+        <div class="g-item glass-card"><i class="fa fa-chart-line"></i><h4>Performance</h4><p>LCP &lt; 2.5s, CLS &lt; 0.1.</p></div>
       </div>
     </section>
 
@@ -144,9 +156,9 @@
       <div class="container">
         <h2>Ils nous font confiance</h2>
         <div class="cards-grid three">
-          <div class="card testimonial"><p>“Service rapide et pro, super résultat !”</p><div class="t-meta"><strong>Sarah</strong> — Artisan</div></div>
-          <div class="card testimonial"><p>“Tracking bien mis en place, on voit les leads.”</p><div class="t-meta"><strong>Lucas</strong> — Immobilier</div></div>
-          <div class="card testimonial"><p>“On a livré en 10 jours, bluffant.”</p><div class="t-meta"><strong>Jade</strong> — Tourisme</div></div>
+          <div class="card testimonial glass-card"><p>"Service rapide et pro, super résultat !"</p><div class="t-meta"><strong>Sarah</strong> — Artisan</div><div class="gradual-blur-bottom"></div></div>
+          <div class="card testimonial glass-card"><p>"Tracking bien mis en place, on voit les leads."</p><div class="t-meta"><strong>Lucas</strong> — Immobilier</div><div class="gradual-blur-bottom"></div></div>
+          <div class="card testimonial glass-card"><p>"On a livré en 10 jours, bluffant."</p><div class="t-meta"><strong>Jade</strong> — Tourisme</div><div class="gradual-blur-bottom"></div></div>
         </div>
       </div>
     </section>
@@ -254,5 +266,8 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/chatbot.js" defer></script>
   <script src="assets/js/contact-forms.js" defer></script>
+  
+  <!-- Liquid Glass Theme -->
+  <script src="assets/js/liquid-ether.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,249 @@
+/* Liquid Glass Theme - WEBOOST Martinique */
+
+/* Variables CSS pour le thème */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-hover-bg: rgba(255, 255, 255, 0.15);
+  --glass-hover-border: rgba(255, 255, 255, 0.3);
+  --blur-strength: 20px;
+  --transition-speed: 0.3s;
+}
+
+/* Background LiquidEther */
+.liquid-ether-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+/* Glass Card Effects */
+.glass-card {
+  backdrop-filter: blur(var(--blur-strength));
+  -webkit-backdrop-filter: blur(var(--blur-strength));
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Glass Buttons */
+.glass-button {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all var(--transition-speed) ease;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.glass-button:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.glass-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Gradual Blur Effects */
+.gradual-blur-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Premium Card Enhancement */
+.glass-card.premium {
+  background: linear-gradient(135deg, 
+    rgba(138, 43, 226, 0.1) 0%, 
+    rgba(75, 0, 130, 0.1) 50%, 
+    rgba(255, 20, 147, 0.1) 100%
+  );
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.glass-card.premium:hover {
+  background: linear-gradient(135deg, 
+    rgba(138, 43, 226, 0.15) 0%, 
+    rgba(75, 0, 130, 0.15) 50%, 
+    rgba(255, 20, 147, 0.15) 100%
+  );
+  border-color: rgba(138, 43, 226, 0.5);
+}
+
+/* Hero Section Enhancement */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #0f0f10 0%, #1a1a2e 50%, #16213e 100%);
+  overflow: hidden;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 10;
+}
+
+.hero h1 {
+  background: linear-gradient(45deg, #8a2be2, #ff1493, #00bfff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.glass-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glass-card:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.glass-card:nth-child(3) {
+  animation-delay: 4s;
+}
+
+/* Enhanced Pricing Cards */
+.card.pricing.glass-card .price {
+  background: linear-gradient(45deg, #8a2be2, #ff1493);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .glass-card {
+    margin: 1rem;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+  
+  .glass-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .gradual-blur-bottom {
+    height: 2rem;
+  }
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-button {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .gradual-blur-bottom {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Additional Visual Enhancements */
+.hero-visual .hero-card {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.hero-visual .hero-card:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  transform: translateY(-5px);
+}
+
+/* Section Headers Enhancement */
+.section h2 {
+  background: linear-gradient(45deg, #8a2be2, #ff1493);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Value Props Enhancement */
+.value-props li {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  transition: all var(--transition-speed) ease;
+}
+
+.value-props li:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  transform: translateX(5px);
+}

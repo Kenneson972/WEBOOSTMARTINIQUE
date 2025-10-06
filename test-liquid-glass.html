@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test Liquid Glass - WEBOOST Martinique</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/liquid-glass.css">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0f10 0%, #1a1a2e 50%, #16213e 100%);
+      min-height: 100vh;
+      color: white;
+    }
+    
+    .test-container {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    
+    .test-card {
+      max-width: 600px;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .test-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #8a2be2, #ff1493, #00bfff);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 3s ease infinite;
+    }
+    
+    .test-button {
+      margin: 1rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <!-- Liquid Glass Background -->
+    <div id="liquidEtherContainer" class="liquid-ether-bg"></div>
+    
+    <div class="test-card glass-card">
+      <h1 class="test-title">Liquid Glass Theme</h1>
+      <p>Test du thème Liquid Glass avec background interactif et effets de flou progressif.</p>
+      
+      <div style="margin: 2rem 0;">
+        <button class="test-button glass-button">Effet Glass</button>
+        <button class="test-button glass-button">Bouton Premium</button>
+      </div>
+      
+      <p>Déplacez votre souris pour voir l'effet LiquidEther en arrière-plan !</p>
+      
+      <div class="gradual-blur-bottom"></div>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="assets/js/liquid-ether.js"></script>
+</body>
+</html>
