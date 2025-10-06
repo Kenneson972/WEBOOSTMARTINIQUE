@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Démonstration GradualBlur - WEBOOST Martinique</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.0/math.min.js"></script>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/modern-design.css">
+  <link rel="stylesheet" href="assets/css/liquid-glass.css">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <style>
+    .demo-section {
+      padding: 4rem 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .demo-card {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    
+    .demo-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+    
+    .demo-description {
+      color: var(--gray-300);
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+    
+    .demo-controls {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 1.5rem;
+      z-index: 1000;
+    }
+    
+    .control-group {
+      margin-bottom: 1rem;
+    }
+    
+    .control-label {
+      display: block;
+      color: var(--white);
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .control-input {
+      width: 100%;
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: var(--white);
+    }
+    
+    .control-button {
+      background: var(--gradient-primary);
+      border: none;
+      border-radius: 8px;
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition-normal);
+    }
+    
+    .control-button:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="modern-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-text">WebBoost</span>
+        <span class="logo-accent">Martinique</span>
+      </div>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Retour au site</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Demo Controls -->
+  <div class="demo-controls">
+    <h3 style="color: var(--white); margin-bottom: 1rem;">Contrôles GradualBlur</h3>
+    
+    <div class="control-group">
+      <label class="control-label">Position</label>
+      <select class="control-input" id="positionSelect">
+        <option value="bottom">Bottom</option>
+        <option value="top">Top</option>
+        <option value="left">Left</option>
+        <option value="right">Right</option>
+      </select>
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label">Force (1-10)</label>
+      <input type="range" class="control-input" id="strengthSlider" min="1" max="10" value="3" step="0.5">
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label">Nombre de divs (3-12)</label>
+      <input type="range" class="control-input" id="divCountSlider" min="3" max="12" value="6" step="1">
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label">Courbe</label>
+      <select class="control-input" id="curveSelect">
+        <option value="linear">Linear</option>
+        <option value="ease-in">Ease In</option>
+        <option value="ease-out">Ease Out</option>
+        <option value="bezier">Bezier</option>
+      </select>
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label">Exponentiel</label>
+      <input type="checkbox" id="exponentialCheck" checked>
+    </div>
+    
+    <button class="control-button" onclick="updateBlurEffects()">Mettre à jour</button>
+  </div>
+
+  <!-- Demo Sections -->
+  <section class="demo-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Démonstration GradualBlur</h2>
+        <p class="section-subtitle">Effets de flou progressif interactifs</p>
+      </div>
+      
+      <div class="demo-grid">
+        <!-- Demo Card 1 - Preset Subtle -->
+        <div class="pack-card glass-card" id="demoCard1">
+          <div class="pack-header">
+            <h3 class="pack-name">Preset Subtle</h3>
+            <div class="pack-price">
+              <span class="currency">Effet</span>
+              <span class="amount">Doux</span>
+            </div>
+          </div>
+          <p class="demo-description">
+            Effet de flou subtil et élégant, parfait pour les cartes de contenu.
+          </p>
+          <button class="pack-button glass-button">
+            Voir l'effet
+          </button>
+        </div>
+
+        <!-- Demo Card 2 - Preset Intense -->
+        <div class="pack-card glass-card featured" id="demoCard2">
+          <div class="pack-badge">Populaire</div>
+          <div class="pack-header">
+            <h3 class="pack-name">Preset Intense</h3>
+            <div class="pack-price">
+              <span class="currency">Effet</span>
+              <span class="amount">Fort</span>
+            </div>
+          </div>
+          <p class="demo-description">
+            Effet de flou intense et dramatique, idéal pour les éléments importants.
+          </p>
+          <button class="pack-button glass-button primary">
+            Voir l'effet
+          </button>
+        </div>
+
+        <!-- Demo Card 3 - Preset Smooth -->
+        <div class="pack-card glass-card" id="demoCard3">
+          <div class="pack-header">
+            <h3 class="pack-name">Preset Smooth</h3>
+            <div class="pack-price">
+              <span class="currency">Effet</span>
+              <span class="amount">Fluide</span>
+            </div>
+          </div>
+          <p class="demo-description">
+            Transition fluide et naturelle, parfaite pour les interfaces modernes.
+          </p>
+          <button class="pack-button glass-button">
+            Voir l'effet
+          </button>
+        </div>
+
+        <!-- Demo Card 4 - Multi-direction -->
+        <div class="pack-card glass-card" id="demoCard4">
+          <div class="pack-header">
+            <h3 class="pack-name">Multi-direction</h3>
+            <div class="pack-price">
+              <span class="currency">Effet</span>
+              <span class="amount">4D</span>
+            </div>
+          </div>
+          <p class="demo-description">
+            Flou sur tous les côtés pour un effet immersif complet.
+          </p>
+          <button class="pack-button glass-button">
+            Voir l'effet
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="assets/js/liquid-ether.js"></script>
+  <script src="assets/js/gradual-blur.js"></script>
+  <script src="assets/js/modern-interactions.js"></script>
+  
+  <script>
+    let blurInstances = {};
+    
+    // Initialiser les effets de démonstration
+    function initializeDemoBlurs() {
+      // Card 1 - Subtle
+      blurInstances.card1 = GradualBlur.createPreset('subtle');
+      blurInstances.card1.attachTo('#demoCard1');
+      
+      // Card 2 - Intense
+      blurInstances.card2 = GradualBlur.createPreset('intense');
+      blurInstances.card2.attachTo('#demoCard2');
+      
+      // Card 3 - Smooth
+      blurInstances.card3 = GradualBlur.createPreset('smooth');
+      blurInstances.card3.attachTo('#demoCard3');
+      
+      // Card 4 - Multi-direction
+      blurInstances.card4 = new GradualBlur({
+        position: 'bottom',
+        height: '2rem',
+        strength: 2,
+        divCount: 4,
+        curve: 'bezier',
+        exponential: true,
+        opacity: 0.8
+      });
+      blurInstances.card4.attachTo('#demoCard4');
+    }
+    
+    // Mettre à jour les effets
+    function updateBlurEffects() {
+      const position = document.getElementById('positionSelect').value;
+      const strength = parseFloat(document.getElementById('strengthSlider').value);
+      const divCount = parseInt(document.getElementById('divCountSlider').value);
+      const curve = document.getElementById('curveSelect').value;
+      const exponential = document.getElementById('exponentialCheck').checked;
+      
+      Object.values(blurInstances).forEach(blur => {
+        blur.updateOptions({
+          position: position,
+          strength: strength,
+          divCount: divCount,
+          curve: curve,
+          exponential: exponential
+        });
+      });
+      
+      console.log('Effets GradualBlur mis à jour:', {
+        position, strength, divCount, curve, exponential
+      });
+    }
+    
+    // Initialiser quand le DOM est prêt
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        initializeDemoBlurs();
+      }, 500);
+      
+      // Écouter les changements des contrôles
+      document.getElementById('positionSelect').addEventListener('change', updateBlurEffects);
+      document.getElementById('strengthSlider').addEventListener('input', updateBlurEffects);
+      document.getElementById('divCountSlider').addEventListener('input', updateBlurEffects);
+      document.getElementById('curveSelect').addEventListener('change', updateBlurEffects);
+      document.getElementById('exponentialCheck').addEventListener('change', updateBlurEffects);
+    });
+  </script>
+</body>
+</html>
