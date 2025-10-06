@@ -248,27 +248,81 @@
   transform: translateX(5px);
 }
 
-/* Enhanced GradualBlur Effects */
-.gradual-blur {
-  position: absolute;
-  pointer-events: none;
-  z-index: 10;
-  isolation: isolate;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* GradualBlur v2.0 - Styles Officiels */
+.gradual-blur { 
+  pointer-events: none; 
+  transition: opacity 0.3s ease-out; 
 }
 
-.gradual-blur > div {
-  position: absolute;
-  top: 0;
-  left: 0;
+.gradual-blur-parent { 
+  overflow: hidden; 
+}
+
+.gradual-blur-inner { 
+  pointer-events: none; 
+  position: relative;
   width: 100%;
   height: 100%;
+}
+
+.gradual-blur-inner > div {
   -webkit-backdrop-filter: inherit;
   backdrop-filter: inherit;
 }
 
-/* Specific blur classes for different elements */
+.gradual-blur {
+  isolation: isolate;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .gradual-blur-inner > div {
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0.5;
+  }
+}
+
+.gradual-blur-fixed {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Enhanced blur effects with hover */
+.glass-card:hover .gradual-blur {
+  opacity: 1.1;
+  transition: opacity 0.3s ease;
+}
+
+.glass-card:hover .gradual-blur .gradual-blur-inner > div {
+  backdrop-filter: blur(calc(var(--blur-value, 10px) + 2px));
+  -webkit-backdrop-filter: blur(calc(var(--blur-value, 10px) + 2px));
+}
+
+/* Animation for blur effects */
+@keyframes blurFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gradual-blur {
+  animation: blurFadeIn 0.6s ease forwards;
+}
+
+.gradual-blur:nth-child(1) { animation-delay: 0.1s; }
+.gradual-blur:nth-child(2) { animation-delay: 0.2s; }
+.gradual-blur:nth-child(3) { animation-delay: 0.3s; }
+
+/* Specific positioning for different blur types */
 .gradual-blur-card {
   bottom: 0;
   left: 0;
@@ -317,42 +371,3 @@
   width: 100%;
   height: 1rem;
 }
-
-/* Enhanced blur effects with hover */
-.glass-card:hover .gradual-blur {
-  opacity: 1.2;
-  transition: opacity 0.3s ease;
-}
-
-.glass-card:hover .gradual-blur > div {
-  backdrop-filter: blur(calc(var(--blur-value, 10px) + 3px));
-  -webkit-backdrop-filter: blur(calc(var(--blur-value, 10px) + 3px));
-}
-
-/* Fallback for browsers without backdrop-filter support */
-@supports not (backdrop-filter: blur(1px)) {
-  .gradual-blur > div {
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0.5;
-  }
-}
-
-/* Animation for blur effects */
-@keyframes blurFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.gradual-blur {
-  animation: blurFadeIn 0.6s ease forwards;
-}
-
-.gradual-blur:nth-child(1) { animation-delay: 0.1s; }
-.gradual-blur:nth-child(2) { animation-delay: 0.2s; }
-.gradual-blur:nth-child(3) { animation-delay: 0.3s; }

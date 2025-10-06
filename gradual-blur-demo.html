@@ -163,6 +163,21 @@
       <input type="checkbox" id="exponentialCheck" checked>
     </div>
     
+    <div class="control-group">
+      <label class="control-label">Animé</label>
+      <input type="checkbox" id="animatedCheck">
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label">Hover Intensity</label>
+      <input type="range" class="control-input" id="hoverIntensitySlider" min="1" max="3" value="1.5" step="0.1">
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label">Opacité (0-1)</label>
+      <input type="range" class="control-input" id="opacitySlider" min="0" max="1" value="0.8" step="0.1">
+    </div>
+    
     <button class="control-button" onclick="updateBlurEffects()">Mettre à jour</button>
   </div>
 
@@ -269,15 +284,19 @@
       blurInstances.card3 = GradualBlur.createPreset('smooth');
       blurInstances.card3.attachTo('#demoCard3');
       
-      // Card 4 - Multi-direction
-      blurInstances.card4 = new GradualBlur({
+      // Card 4 - Multi-direction avec hover
+      blurInstances.card4 = GradualBlur.create({
         position: 'bottom',
         height: '2rem',
         strength: 2,
         divCount: 4,
         curve: 'bezier',
         exponential: true,
-        opacity: 0.8
+        opacity: 0.8,
+        hoverIntensity: 1.5,
+        animated: true,
+        duration: '0.4s',
+        easing: 'ease-out'
       });
       blurInstances.card4.attachTo('#demoCard4');
     }
@@ -289,6 +308,9 @@
       const divCount = parseInt(document.getElementById('divCountSlider').value);
       const curve = document.getElementById('curveSelect').value;
       const exponential = document.getElementById('exponentialCheck').checked;
+      const animated = document.getElementById('animatedCheck').checked;
+      const hoverIntensity = parseFloat(document.getElementById('hoverIntensitySlider').value);
+      const opacity = parseFloat(document.getElementById('opacitySlider').value);
       
       Object.values(blurInstances).forEach(blur => {
         blur.updateOptions({
@@ -296,12 +318,17 @@
           strength: strength,
           divCount: divCount,
           curve: curve,
-          exponential: exponential
+          exponential: exponential,
+          animated: animated,
+          hoverIntensity: hoverIntensity,
+          opacity: opacity,
+          duration: '0.4s',
+          easing: 'ease-out'
         });
       });
       
-      console.log('Effets GradualBlur mis à jour:', {
-        position, strength, divCount, curve, exponential
+      console.log('Effets GradualBlur v2.0 mis à jour:', {
+        position, strength, divCount, curve, exponential, animated, hoverIntensity, opacity
       });
     }
     
@@ -317,6 +344,9 @@
       document.getElementById('divCountSlider').addEventListener('input', updateBlurEffects);
       document.getElementById('curveSelect').addEventListener('change', updateBlurEffects);
       document.getElementById('exponentialCheck').addEventListener('change', updateBlurEffects);
+      document.getElementById('animatedCheck').addEventListener('change', updateBlurEffects);
+      document.getElementById('hoverIntensitySlider').addEventListener('input', updateBlurEffects);
+      document.getElementById('opacitySlider').addEventListener('input', updateBlurEffects);
     });
   </script>
 </body>
