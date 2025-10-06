@@ -1,5 +1,0 @@
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/USERNAME/public_html/
-    - /bin/cp -R index.html assets pages api .htaccess robots.txt sitemap.xml $DEPLOYPATH
-    - /bin/ls -la $DEPLOYPATH
