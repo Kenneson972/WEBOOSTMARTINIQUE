@@ -446,5 +446,67 @@
   <script src="assets/js/modern-interactions.js"></script>
   <script src="assets/js/chatbot.js"></script>
   <script src="assets/js/contact-forms.js"></script>
+  
+  <!-- Initialisation des animations -->
+  <script>
+    // Attendre que tout soit chargé
+    window.addEventListener('load', function() {
+      console.log('🚀 Initialisation des animations...');
+      
+      // Vérifier les dépendances
+      if (typeof THREE === 'undefined') {
+        console.error('❌ Three.js non chargé !');
+        return;
+      }
+      
+      if (typeof LiquidEther === 'undefined') {
+        console.error('❌ LiquidEther non chargé !');
+        return;
+      }
+      
+      if (typeof GradualBlur === 'undefined') {
+        console.error('❌ GradualBlur non chargé !');
+        return;
+      }
+      
+      console.log('✅ Toutes les dépendances sont chargées');
+      
+      // Forcer l'initialisation des animations
+      setTimeout(() => {
+        console.log('🎨 Lancement des animations...');
+        
+        // Réinitialiser LiquidEther si nécessaire
+        const container = document.getElementById('liquidEtherContainer');
+        if (container) {
+          container.innerHTML = ''; // Nettoyer le conteneur
+          new LiquidEther('liquidEtherContainer', {
+            colors: ['#5227FF', '#FF9FFC', '#B19EEF'],
+            mouseForce: 20,
+            cursorSize: 100,
+            isViscous: false,
+            viscous: 30,
+            iterationsViscous: 32,
+            iterationsPoisson: 32,
+            resolution: 0.5,
+            isBounce: false,
+            autoDemo: true,
+            autoSpeed: 0.5,
+            autoIntensity: 2.2,
+            takeoverDuration: 0.25,
+            autoResumeDelay: 3000,
+            autoRampDuration: 0.6
+          });
+          console.log('✅ LiquidEther initialisé');
+        }
+        
+        // Forcer l'initialisation de GradualBlur
+        if (typeof initializeGradualBlur === 'function') {
+          initializeGradualBlur();
+          console.log('✅ GradualBlur initialisé');
+        }
+        
+      }, 1000);
+    });
+  </script>
 </body>
 </html>

@@ -34,6 +34,10 @@ class LiquidEther {
     this.resizeObserverRef = { current: null };
     this.intersectionObserverRef = { current: null };
     this.resizeRafRef = { current: null };
+    
+    // Variables globales pour WebGLManager
+    this.rafRef = { current: null };
+    this.isVisibleRef = { current: true };
 
     this.init();
   }
@@ -977,6 +981,10 @@ class LiquidEther {
     class WebGLManager {
       constructor(props) {
         this.props = props;
+        this.rafRef = { current: null };
+        this.isVisibleRef = { current: true };
+        this.running = false;
+        
         Common.init(props.$wrapper);
         Mouse.init(props.$wrapper);
         Mouse.autoIntensity = props.autoIntensity;
@@ -1000,12 +1008,11 @@ class LiquidEther {
           const hidden = document.hidden;
           if (hidden) {
             this.pause();
-          } else if (isVisibleRef.current) {
+          } else if (this.isVisibleRef.current) {
             this.start();
           }
         };
         document.addEventListener('visibilitychange', this._onVisibility);
-        this.running = false;
       }
 
       init() {
@@ -1028,7 +1035,7 @@ class LiquidEther {
       loop() {
         if (!this.running) return;
         this.render();
-        rafRef.current = requestAnimationFrame(this._loop);
+        this.rafRef.current = requestAnimationFrame(this._loop);
       }
 
       start() {
@@ -1039,9 +1046,9 @@ class LiquidEther {
 
       pause() {
         this.running = false;
-        if (rafRef.current) {
-          cancelAnimationFrame(rafRef.current);
-          rafRef.current = null;
+        if (this.rafRef.current) {
+          cancelAnimationFrame(this.rafRef.current);
+          this.rafRef.current = null;
         }
       }
 
@@ -1077,6 +1084,10 @@ class LiquidEther {
     });
 
     this.webglRef.current = webgl;
+    
+    // Passer les références au WebGLManager
+    webgl.rafRef = this.rafRef;
+    webgl.isVisibleRef = this.isVisibleRef;
 
     // Apply options
     this.applyOptions();
@@ -1115,6 +1126,13 @@ class LiquidEther {
         const isVisible = entry.isIntersecting && entry.intersectionRatio > 0;
         this.isVisibleRef.current = isVisible;
         if (!this.webglRef.current) return;
+        
+        // Passer les références au WebGLManager
+        if (this.webglRef.current) {
+          this.webglRef.current.isVisibleRef = this.isVisibleRef;
+          this.webglRef.current.rafRef = this.rafRef;
+        }
+        
         if (isVisible && !document.hidden) {
           this.webglRef.current.start();
         } else {

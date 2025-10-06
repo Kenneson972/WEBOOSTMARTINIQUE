@@ -1,6 +1,6 @@
 @echo off
-echo 🚀 Déploiement WEBOOST Martinique - Liquid Glass v2.0 + GradualBlur v2.0
-echo ========================================================================
+echo 🚀 Déploiement WEBOOST Martinique - Liquid Glass v2.0 + GradualBlur v2.0 + CORRECTIONS
+echo ================================================================================
 
 REM Vérifier si Git est initialisé
 if not exist ".git" (
@@ -14,13 +14,20 @@ git add .
 
 REM Commit avec message par défaut
 echo 💾 Commit des modifications...
-git commit -m "🎉 WEBOOST Martinique v2.0 - Liquid Glass + GradualBlur Complet
+git commit -m "🎉 WEBOOST Martinique v2.0 - Liquid Glass + GradualBlur + CORRECTIONS
 
 ✨ NOUVEAUTÉS MAJEURES:
-- LiquidEther v2.0: Background WebGL avec simulations fluides complètes
+- LiquidEther v2.0: Background WebGL avec simulations fluides complètes (CORRIGÉ)
 - GradualBlur v2.0: Effets de flou progressif avec 13 presets
 - Glass Morphism: Design moderne avec transparence et flou
 - AutoDemo Intelligent: Détection d'inactivité et reprise automatique
+
+🔧 CORRECTIONS CRITIQUES:
+- ✅ Résolution erreurs JavaScript 'rafRef is not defined'
+- ✅ Résolution erreurs 'isVisibleRef is not defined'
+- ✅ Correction classe WebGLManager et IntersectionObserver
+- ✅ Passage correct des références entre classes
+- ✅ Version stable sans erreurs console
 
 🚀 FONCTIONNALITÉS:
 - Background LiquidEther avec WebGL et Three.js
@@ -65,18 +72,20 @@ if not "%REPO_URL%"=="" (
 )
 
 echo.
-echo 🎉 WEBOOST Martinique v2.0 déployé avec succès !
+echo 🎉 WEBOOST Martinique v2.0 + CORRECTIONS déployé avec succès !
 echo.
 echo 📋 Prochaines étapes:
 echo 1. Ouvrir index.html dans votre navigateur (site principal)
-echo 2. Tester gradual-blur-demo.html (démonstration interactive)
-echo 3. Déployer sur votre hébergeur préféré
+echo 2. Tester test-simple.html (validation rapide des corrections)
+echo 3. Tester gradual-blur-demo.html (démonstration interactive)
+echo 4. Déployer sur votre hébergeur préféré
 echo.
 echo 🌟 FONCTIONNALITÉS DISPONIBLES:
-echo - Background LiquidEther avec simulations fluides WebGL
+echo - Background LiquidEther avec simulations fluides WebGL (CORRIGÉ)
 echo - Effets GradualBlur avec 13 presets et animations
 echo - Design Glass Morphism moderne et responsive
 echo - AutoDemo intelligent et optimisé mobile
+echo - Version stable sans erreurs JavaScript
 echo.
 echo 📖 DOCUMENTATION:
 echo - LIQUID_ETHER_FINAL_INTEGRATION.md (LiquidEther complet)
