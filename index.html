@@ -29,6 +29,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+  <!-- Conteneur pour le fond d'écran LiquidEther -->
+  <div id="background-container"></div>
+
+  <!-- Conteneur qui enveloppe tout le contenu existant -->
+  <div id="content-container">
+  
   <!-- Navigation -->
   <nav class="modern-nav">
     <div class="nav-container">
@@ -539,6 +545,22 @@
         }, 800);
         
       }, 1500); // Attendre plus longtemps pour s'assurer que tout est chargé
+    });
+  </script>
+
+  </div> <!-- Fin de #content-container -->
+
+  <!-- Scripts LiquidEther pour le fond d'écran -->
+  <script src="https://cdn.jsdelivr.net/npm/liquid-ether@0.0.3/dist/liquid-ether.umd.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      new LiquidEther({
+        el: document.getElementById('background-container'),
+        color: '#9333ea',
+        background: '#000000',
+        density: 0.8,
+        velocity: 0.3
+      });
     });
   </script>
 </body>
