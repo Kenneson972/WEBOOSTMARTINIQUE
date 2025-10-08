@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sites Web Martinique | 7-12 jours | WebBoost Martinique</title>
+    <meta name="description" content="Création de sites web en 7-12 jours en Martinique. Expertise locale, garantie satisfait, paiement échelonné. Devis gratuit.">
+    <meta name="keywords" content="site web martinique, création site internet, développeur martinique, agence web martinique">
+    <meta name="theme-color" content="#9333ea">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- Conteneur pour l'animation LiquidEther -->
+    <div id="background-container"></div>
+
+    <!-- Conteneur principal pour tout le contenu -->
+    <div id="content-container">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        WebBoost <span>Martinique</span>
+                    </div>
+                    <nav class="main-nav">
+                        <a href="#packs">Packs</a>
+                        <a href="#process">Process</a>
+                        <a href="#temoignages">Témoignages</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#contact" class="btn btn-primary">Devis gratuit</a>
+                    </nav>
+                    <button class="nav-toggle" id="navToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-content">
+                        <h1>Votre site web <strong>martiniquais</strong> en 7-12 jours</h1>
+                        <p class="subtitle">Rapide. Local. Garantie totale. Paiement échelonné 50/40/10.</p>
+                        
+                        <ul class="value-props">
+                            <li><i class="fas fa-check"></i> Performance mobile optimisée</li>
+                            <li><i class="fas fa-check"></i> SEO local martiniquais</li>
+                            <li><i class="fas fa-check"></i> Garantie satisfait ou remboursé</li>
+                            <li><i class="fas fa-check"></i> Paiement échelonné sans frais</li>
+                        </ul>
+
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-lg">
+                                <span>Demander un devis</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button class="btn btn-secondary btn-lg">
+                                <span>Voir les packs</span>
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="hero-card reveal">
+                            <div class="card-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Performance mobile</h3>
+                            <p>Lighthouse 95+, SEO local optimisé</p>
+                        </div>
+                        <div class="hero-card reveal">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Conversion</h3>
+                            <p>CTA clairs, tracking GA4 & Hotjar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packs Section -->
+        <section id="packs" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Choisissez votre pack</h2>
+                    <p class="section-desc">Trois offres simples pour aller vite et bien. Paiement 50/40/10.</p>
+                </div>
+                
+                <div class="cards-grid three">
+                    <!-- Pack Essentiel -->
+                    <div class="card pricing reveal">
+                        <h3>Essentiel</h3>
+                        <div class="price">€890</div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 3 pages clés</li>
+                            <li><i class="fas fa-check"></i> Design responsive</li>
+                            <li><i class="fas fa-check"></i> SEO local</li>
+                            <li><i class="fas fa-check"></i> 1 révision</li>
+                        </ul>
+                        <button class="btn btn-outline">Choisir</button>
+                    </div>
+
+                    <!-- Pack Pro -->
+                    <div class="card pricing reveal">
+                        <div class="badge">Populaire</div>
+                        <h3>Pro</h3>
+                        <div class="price">€1290</div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 5 pages complètes</li>
+                            <li><i class="fas fa-check"></i> Design personnalisé</li>
+                            <li><i class="fas fa-check"></i> SEO + Analytics</li>
+                            <li><i class="fas fa-check"></i> 2 révisions</li>
+                            <li><i class="fas fa-check"></i> Formation</li>
+                        </ul>
+                        <button class="btn btn-primary">Choisir</button>
+                    </div>
+
+                    <!-- Pack Premium -->
+                    <div class="card pricing reveal">
+                        <h3>Premium</h3>
+                        <div class="price">€1890</div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 8+ pages</li>
+                            <li><i class="fas fa-check"></i> E-commerce basique</li>
+                            <li><i class="fas fa-check"></i> SEO avancé</li>
+                            <li><i class="fas fa-check"></i> 3 révisions</li>
+                            <li><i class="fas fa-check"></i> Support 6 mois</li>
+                        </ul>
+                        <button class="btn btn-outline">Choisir</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="section alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Notre processus en 4 étapes</h2>
+                    <p class="section-desc">Simple, rapide et transparent.</p>
+                </div>
+                
+                <div class="process-steps">
+                    <div class="step reveal">
+                        <div class="step-number">1</div>
+                        <h3>Brief & Devis</h3>
+                        <p>Nous échangeons sur vos besoins et vous proposons un devis personnalisé.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-number">2</div>
+                        <h3>Design & Validation</h3>
+                        <p>Création du design et validation avec vous avant développement.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-number">3</div>
+                        <h3>Développement</h3>
+                        <p>Codage et intégration de toutes les fonctionnalités demandées.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-number">4</div>
+                        <h3>Livraison & Formation</h3>
+                        <p>Mise en ligne et formation pour gérer votre site en autonomie.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Témoignages Section -->
+        <section id="temoignages" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ce que disent nos clients</h2>
+                    <p class="section-desc">Plus de 50 sites livrés en Martinique.</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial reveal">
+                        <div class="testimonial-content">
+                            <p>"Site livré en 8 jours exactement. Très professionnel et à l'écoute."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Marie L.</h4>
+                                <span>Restaurant Le Pélican</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial reveal">
+                        <div class="testimonial-content">
+                            <p>"Excellent rapport qualité-prix. Le paiement échelonné nous a aidés."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Jean-Pierre M.</h4>
+                                <span>Auto-école Martinique</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial reveal">
+                        <div class="testimonial-content">
+                            <p>"Support réactif et formation très utile. Je recommande !"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Sophie D.</h4>
+                                <span>Boutique Mode Caraïbe</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Questions fréquentes</h2>
+                    <p class="section-desc">Tout ce que vous devez savoir.</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item reveal">
+                        <button class="faq-question">
+                            <span>Combien de temps pour créer mon site ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Entre 7 et 12 jours selon la complexité de votre projet. Nous respectons toujours nos délais.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <button class="faq-question">
+                            <span>Comment fonctionne le paiement échelonné ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>50% à la commande, 40% à la validation du design, 10% à la livraison. Aucun frais supplémentaire.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <button class="faq-question">
+                            <span>Que se passe-t-il si je ne suis pas satisfait ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Garantie satisfait ou remboursé à 100%. Nous travaillons jusqu'à votre satisfaction totale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Prêt à démarrer ?</h2>
+                    <p class="section-desc">Contactez-nous pour un devis gratuit et personnalisé.</p>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info reveal">
+                        <h3>Nos coordonnées</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+596 696 XX XX XX</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@weboostmartinique.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Fort-de-France, Martinique</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-form reveal">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Votre email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Votre téléphone">
+                            </div>
+                            <div class="form-group">
+                                <select name="pack" required>
+                                    <option value="">Choisir un pack</option>
+                                    <option value="essentiel">Pack Essentiel</option>
+                                    <option value="pro">Pack Pro</option>
+                                    <option value="premium">Pack Premium</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Décrivez votre projet..." rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <span>Envoyer la demande</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>WebBoost Martinique</h4>
+                        <p>Création de sites web professionnels en Martinique. Rapide, local, garanti.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#packs">Packs</a></li>
+                            <li><a href="#process">Process</a></li>
+                            <li><a href="#temoignages">Témoignages</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="tel:+596696XXXXXX">+596 696 XX XX XX</a></li>
+                            <li><a href="mailto:contact@weboostmartinique.com">contact@weboostmartinique.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 WebBoost Martinique. Tous droits réservés.</p>
+                    <div class="footer-links">
+                        <a href="pages/mentions-legales.html">Mentions légales</a>
+                        <a href="pages/politique-confidentialite.html">Confidentialité</a>
+                        <a href="pages/cgv.html">CGV</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Chatbot Élise -->
+    <div id="chatbot-container"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/contact-forms.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="js/liquid-ether.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

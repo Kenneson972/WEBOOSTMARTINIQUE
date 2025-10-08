@@ -1,0 +1,100 @@
+/* ===========================================
+   RESET CSS ET STYLES DE BASE
+   =========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* ===========================================
+   STYLES POUR LIQUID ETHER
+   =========================================== */
+
+/* Conteneur pour l'animation de fond */
+#background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#background-container canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Conteneur pour le contenu de la page */
+#content-container {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    min-height: 100vh;
+}
+
+/* ===========================================
+   STYLES TEMPORAIRES POUR LA PHASE 1
+   =========================================== */
+
+#content-container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#content-container p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+
+@media (max-width: 768px) {
+    #content-container h1 {
+        font-size: 2rem;
+    }
+    
+    #content-container p {
+        font-size: 1rem;
+    }
+}
+
+/* ===========================================
+   ACCESSIBILITÉ
+   =========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    #background-container {
+        display: none;
+    }
+    
+    #content-container {
+        background-color: #000;
+        color: #fff;
+    }
+}
+
+/* ===========================================
+   STYLES POUR LE CONTENU SERONT AJOUTÉS ICI
+   À LA PHASE 2
+   =========================================== */

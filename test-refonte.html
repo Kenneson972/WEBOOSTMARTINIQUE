@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Refonte WebBoost Martinique</title>
+    <meta name="theme-color" content="#9333ea">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style-refonte.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- Conteneur pour l'animation LiquidEther -->
+    <div id="background-container"></div>
+
+    <!-- Conteneur principal pour tout le contenu -->
+    <div id="content-container">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        WebBoost <span>Martinique</span>
+                    </div>
+                    <nav class="main-nav">
+                        <a href="#test">Test</a>
+                        <a href="#demo">Demo</a>
+                        <a href="#contact">Contact</a>
+                    </nav>
+                    <button class="nav-toggle" id="navToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-content">
+                        <h1>🌊 Test de la Refonte avec <strong>LiquidEther</strong></h1>
+                        <p class="subtitle">Background animé violet + Glass Morphism + Design moderne</p>
+                        
+                        <ul class="value-props">
+                            <li><i class="fas fa-check"></i> ✅ LiquidEther intégré nativement</li>
+                            <li><i class="fas fa-check"></i> 🎨 Glass Morphism appliqué</li>
+                            <li><i class="fas fa-check"></i> 📱 Design 100% responsive</li>
+                            <li><i class="fas fa-check"></i> ⚡ Performance optimisée</li>
+                        </ul>
+
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-lg" onclick="testLiquidEther()">
+                                <span>Test LiquidEther</span>
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="btn btn-secondary btn-lg" onclick="testGlassMorphism()">
+                                <span>Test Glass Morphism</span>
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="hero-card reveal">
+                            <div class="card-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h3>Animation Fluide</h3>
+                            <p>Particules violettes en mouvement avec connexions</p>
+                        </div>
+                        <div class="hero-card reveal">
+                            <div class="card-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Responsive Design</h3>
+                            <p>Parfait sur mobile, tablette et desktop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Section -->
+        <section id="test" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🧪 Tests des Composants</h2>
+                    <p class="section-desc">Vérification de tous les éléments visuels et fonctionnels.</p>
+                </div>
+                
+                <div class="cards-grid three">
+                    <!-- Test Card 1 -->
+                    <div class="card reveal">
+                        <h3>🎨 Glass Morphism</h3>
+                        <p>Effet de verre avec transparence et flou d'arrière-plan.</p>
+                        <button class="btn btn-outline">Test</button>
+                    </div>
+
+                    <!-- Test Card 2 -->
+                    <div class="card reveal">
+                        <h3>🌊 LiquidEther</h3>
+                        <p>Animation de particules violettes fluides et dynamiques.</p>
+                        <button class="btn btn-primary">Test</button>
+                    </div>
+
+                    <!-- Test Card 3 -->
+                    <div class="card reveal">
+                        <h3>📱 Responsive</h3>
+                        <p>Adaptation automatique à tous les types d'écrans.</p>
+                        <button class="btn btn-secondary">Test</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section id="demo" class="section alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🎮 Démonstration Interactive</h2>
+                    <p class="section-desc">Testez les fonctionnalités en temps réel.</p>
+                </div>
+                
+                <div class="demo-controls">
+                    <div class="demo-item reveal">
+                        <h3>🎛️ Contrôles LiquidEther</h3>
+                        <div class="controls">
+                            <button class="btn btn-outline" onclick="pauseAnimation()">
+                                <i class="fas fa-pause"></i> Pause
+                            </button>
+                            <button class="btn btn-outline" onclick="resumeAnimation()">
+                                <i class="fas fa-play"></i> Reprendre
+                            </button>
+                            <button class="btn btn-outline" onclick="changeColor()">
+                                <i class="fas fa-palette"></i> Changer Couleur
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="demo-item reveal">
+                        <h3>📊 Informations Système</h3>
+                        <div id="system-info" class="info-display">
+                            <p>🖥️ Résolution: <span id="resolution">Calcul...</span></p>
+                            <p>📱 Type: <span id="device-type">Détection...</span></p>
+                            <p>🌊 LiquidEther: <span id="liquid-status">Vérification...</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Test -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>📧 Test Formulaire</h2>
+                    <p class="section-desc">Vérification du formulaire de contact.</p>
+                </div>
+                
+                <div class="contact-form reveal">
+                    <form id="testContactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Message de test..." rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <span>Envoyer Test</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>🎯 Test Refonte</h4>
+                        <p>Page de test pour la refonte WebBoost Martinique avec LiquidEther intégré.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>✅ Fonctionnalités Testées</h4>
+                        <ul>
+                            <li>LiquidEther Animation</li>
+                            <li>Glass Morphism</li>
+                            <li>Responsive Design</li>
+                            <li>Formulaires</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 WebBoost Martinique - Test Refonte</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/liquid-ether.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Scripts de test -->
+    <script>
+        // Variables globales pour les tests
+        let testLiquidEther = null;
+        let currentColorIndex = 0;
+        const colors = ['#9333ea', '#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
+
+        // Fonction de test LiquidEther
+        function testLiquidEther() {
+            console.log('🧪 Test LiquidEther démarré');
+            
+            if (typeof LiquidEther !== 'undefined') {
+                alert('✅ LiquidEther est disponible et fonctionnel !');
+            } else {
+                alert('❌ LiquidEther non disponible');
+            }
+        }
+
+        // Fonction de test Glass Morphism
+        function testGlassMorphism() {
+            console.log('🎨 Test Glass Morphism');
+            
+            const cards = document.querySelectorAll('.card, .hero-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.transform = 'scale(1.05)';
+                    card.style.boxShadow = '0 20px 40px rgba(147, 51, 234, 0.3)';
+                    
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                        card.style.boxShadow = '';
+                    }, 300);
+                }, index * 100);
+            });
+            
+            alert('✨ Effet Glass Morphism testé sur toutes les cartes !');
+        }
+
+        // Fonction pour mettre en pause l'animation
+        function pauseAnimation() {
+            if (window.liquidEther) {
+                window.liquidEther.stop();
+                console.log('⏸️ Animation mise en pause');
+            }
+        }
+
+        // Fonction pour reprendre l'animation
+        function resumeAnimation() {
+            if (window.liquidEther) {
+                window.liquidEther.start();
+                console.log('▶️ Animation reprise');
+            }
+        }
+
+        // Fonction pour changer la couleur
+        function changeColor() {
+            if (window.liquidEther) {
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+                window.liquidEther.config.color = colors[currentColorIndex];
+                window.liquidEther.createParticles();
+                console.log(`🎨 Couleur changée: ${colors[currentColorIndex]}`);
+            }
+        }
+
+        // Détection des informations système
+        function detectSystemInfo() {
+            const resolution = `${window.innerWidth}x${window.innerHeight}`;
+            const deviceType = window.innerWidth < 768 ? 'Mobile' : window.innerWidth < 1024 ? 'Tablet' : 'Desktop';
+            const liquidStatus = typeof LiquidEther !== 'undefined' ? '✅ Disponible' : '❌ Non disponible';
+
+            document.getElementById('resolution').textContent = resolution;
+            document.getElementById('device-type').textContent = deviceType;
+            document.getElementById('liquid-status').textContent = liquidStatus;
+        }
+
+        // Initialisation des tests
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                detectSystemInfo();
+                
+                // Exposer liquidEther globalement pour les tests
+                if (typeof LiquidEther !== 'undefined') {
+                    window.liquidEther = new LiquidEther({
+                        color: '#9333ea',
+                        background: '#000000',
+                        density: 0.6,
+                        velocity: 0.4,
+                        size: 1.2,
+                        opacity: 0.7
+                    });
+                }
+            }, 1000);
+        });
+
+        // Test du formulaire
+        document.getElementById('testContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Test en cours...</span>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Test réussi !</span><i class="fas fa-check"></i>';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
