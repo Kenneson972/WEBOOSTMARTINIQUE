@@ -2,10 +2,11 @@
 
 ## 🎉 **NOUVEAUTÉS MAJEURES v2.0**
 
-✨ **LiquidEther v2.0** - Background WebGL avec simulations fluides complètes  
+✨ **LiquidEther v2.0** - Composant React avec WebGL et simulations fluides complètes  
 ✨ **GradualBlur v2.0** - Effets de flou progressif avec 13 presets  
 ✨ **Glass Morphism** - Design moderne avec transparence et flou  
 ✨ **AutoDemo Intelligent** - Détection d'inactivité et reprise automatique  
+✨ **React Integration** - Application React complète avec Three.js  
 
 ## 📋 Structure du Projet
 
@@ -23,9 +24,10 @@ Ce repository contient **deux versions** de votre site WebBoost Martinique :
 
 ### ⚛️ **Version React (Thème Liquid Glass)**
 - **Dossier** : `frontend/`
-- **Technologies** : React 19, Tailwind CSS, Three.js
-- **Fonctionnalités** : Background LiquidEther, effets GradualBlur
-- **Démo interactive** : Composants glass morphism
+- **Technologies** : React 19, Tailwind CSS, Three.js v0.169.0
+- **Composants** : `LiquidEther.jsx`, `GradualBlur.jsx`, `LiquidGlassDemo.jsx`
+- **Fonctionnalités** : Background LiquidEther WebGL, effets GradualBlur, Glass Morphism
+- **Démo interactive** : Composants glass morphism avec animations fluides
 
 ### 🐍 **Backend Python (Optionnel)**
 - **Dossier** : `backend/`
@@ -55,9 +57,15 @@ test-modern-design.html       # Page de test des effets
 ### ⚛️ **Version React (Développement)**
 ```bash
 cd frontend
-npm install
-npm start
+npm install                   # Installer les dépendances (inclut Three.js v0.169.0)
+npm start                     # Démarrer l'app React (localhost:3000)
 ```
+
+**🎨 Fonctionnalités React :**
+- **LiquidEther v2.0** : Composant React avec WebGL et Three.js
+- **Glass Morphism** : Effets de transparence et flou
+- **GradualBlur** : Effets de flou progressif intégrés
+- **AutoDemo** : Animations automatiques intelligentes
 
 ### 🐍 **Backend Python (Si nécessaire)**
 ```bash
