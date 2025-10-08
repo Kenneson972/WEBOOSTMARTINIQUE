@@ -10,13 +10,22 @@
 
 /* Enhanced LiquidEther Background */
 .liquid-ether-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Alternative positioning for hero section */
+.hero-section .liquid-ether-bg {
+  position: absolute;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  opacity: 0.9;
 }
 
 /* Hero section specific adjustments */

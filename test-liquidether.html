@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test LiquidEther - WebBoost Martinique</title>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/liquid-ether.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        .test-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .status {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+        
+        .success { background: rgba(0, 255, 0, 0.2); }
+        .error { background: rgba(255, 0, 0, 0.2); }
+    </style>
+</head>
+<body>
+    <!-- LiquidEther Background -->
+    <div id="liquidEtherContainer" class="liquid-ether-bg"></div>
+    
+    <!-- Test Content -->
+    <div class="test-content">
+        <h1>🌊 Test LiquidEther</h1>
+        <p>Si vous voyez des animations fluides en arrière-plan, LiquidEther fonctionne !</p>
+        <div id="status" class="status">Initialisation...</div>
+        <p><small>Bougez votre souris pour interagir avec les animations</small></p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/liquid-ether.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            const statusEl = document.getElementById('status');
+            
+            setTimeout(() => {
+                if (typeof THREE === 'undefined') {
+                    statusEl.textContent = '❌ Three.js non chargé';
+                    statusEl.className = 'status error';
+                    return;
+                }
+                
+                const container = document.getElementById('liquidEtherContainer');
+                if (container) {
+                    try {
+                        const liquidEther = new LiquidEther('liquidEtherContainer', {
+                            colors: ['#5227FF', '#FF9FFC', '#B19EEF'],
+                            mouseForce: 20,
+                            cursorSize: 100,
+                            autoDemo: true,
+                            autoSpeed: 0.5,
+                            autoIntensity: 2.2
+                        });
+                        
+                        setTimeout(() => {
+                            const canvas = container.querySelector('canvas');
+                            if (canvas) {
+                                statusEl.textContent = '✅ LiquidEther fonctionne parfaitement !';
+                                statusEl.className = 'status success';
+                            } else {
+                                statusEl.textContent = '⚠️ LiquidEther initialisé mais canvas non trouvé';
+                                statusEl.className = 'status error';
+                            }
+                        }, 1000);
+                        
+                    } catch (error) {
+                        statusEl.textContent = '❌ Erreur: ' + error.message;
+                        statusEl.className = 'status error';
+                    }
+                } else {
+                    statusEl.textContent = '❌ Container non trouvé';
+                    statusEl.className = 'status error';
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

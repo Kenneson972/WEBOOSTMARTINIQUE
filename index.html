@@ -473,39 +473,72 @@
       
       // Forcer l'initialisation des animations
       setTimeout(() => {
-        console.log('🎨 Lancement des animations...');
+        console.log('🎨 Lancement des animations LiquidEther...');
+        
+        // Vérifier que Three.js est disponible
+        if (typeof THREE === 'undefined') {
+          console.error('❌ Three.js non chargé');
+          return;
+        }
         
         // Réinitialiser LiquidEther si nécessaire
         const container = document.getElementById('liquidEtherContainer');
         if (container) {
           container.innerHTML = ''; // Nettoyer le conteneur
-          new LiquidEther('liquidEtherContainer', {
-            colors: ['#5227FF', '#FF9FFC', '#B19EEF'],
-            mouseForce: 20,
-            cursorSize: 100,
-            isViscous: false,
-            viscous: 30,
-            iterationsViscous: 32,
-            iterationsPoisson: 32,
-            resolution: 0.5,
-            isBounce: false,
-            autoDemo: true,
-            autoSpeed: 0.5,
-            autoIntensity: 2.2,
-            takeoverDuration: 0.25,
-            autoResumeDelay: 3000,
-            autoRampDuration: 0.6
-          });
-          console.log('✅ LiquidEther initialisé');
+          
+          try {
+            const liquidEther = new LiquidEther('liquidEtherContainer', {
+              colors: ['#5227FF', '#FF9FFC', '#B19EEF'],
+              mouseForce: 20,
+              cursorSize: 100,
+              isViscous: false,
+              viscous: 30,
+              iterationsViscous: 32,
+              iterationsPoisson: 32,
+              resolution: 0.5,
+              isBounce: false,
+              autoDemo: true,
+              autoSpeed: 0.5,
+              autoIntensity: 2.2,
+              takeoverDuration: 0.25,
+              autoResumeDelay: 3000,
+              autoRampDuration: 0.6
+            });
+            console.log('✅ LiquidEther initialisé avec succès !');
+            
+            // Vérifier que le canvas est créé
+            setTimeout(() => {
+              const canvas = container.querySelector('canvas');
+              if (canvas) {
+                console.log('✅ Canvas LiquidEther créé et visible');
+                canvas.style.position = 'absolute';
+                canvas.style.top = '0';
+                canvas.style.left = '0';
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                canvas.style.zIndex = '-1';
+                canvas.style.pointerEvents = 'none';
+              } else {
+                console.warn('⚠️ Canvas LiquidEther non trouvé');
+              }
+            }, 500);
+            
+          } catch (error) {
+            console.error('❌ Erreur lors de l\'initialisation LiquidEther:', error);
+          }
+        } else {
+          console.error('❌ Container liquidEtherContainer non trouvé');
         }
         
         // Forcer l'initialisation de GradualBlur
-        if (typeof initializeGradualBlur === 'function') {
-          initializeGradualBlur();
-          console.log('✅ GradualBlur initialisé');
-        }
+        setTimeout(() => {
+          if (typeof initializeGradualBlur === 'function') {
+            initializeGradualBlur();
+            console.log('✅ GradualBlur initialisé');
+          }
+        }, 800);
         
-      }, 1000);
+      }, 1500); // Attendre plus longtemps pour s'assurer que tout est chargé
     });
   </script>
 </body>

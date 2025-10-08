@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "🚀 Déploiement WEBOOST Martinique - VERSION FINALE REACT + LIQUID ETHER"
-echo "========================================================================"
+echo "🚀 Déploiement WEBOOST Martinique - VERSION FINALE LIQUID ETHER v2.0"
+echo "====================================================================="
 
 # Vérifier si Git est initialisé
 if [ ! -d ".git" ]; then
@@ -15,15 +15,15 @@ git add .
 
 # Commit avec message par défaut
 echo "💾 Commit des modifications..."
-git commit -m "🎉 WEBOOST Martinique - VERSION FINALE REACT + LIQUID ETHER v2.0
+git commit -m "🎉 WEBOOST Martinique - VERSION FINALE LIQUID ETHER v2.0
 
-✨ NOUVELLES FONCTIONNALITÉS REACT:
-- LiquidEther v2.0: Composant React complet avec WebGL et Three.js
-- Intégration parfaite dans l'application React (frontend/)
-- Composant LiquidEther.jsx avec toutes les simulations fluides
-- CSS LiquidEther.css optimisé pour React
-- Three.js v0.169.0 installé et configuré
-- App.js mis à jour avec LiquidEther en background
+✨ FONCTIONNALITÉS LIQUID ETHER v2.0:
+- LiquidEther v2.0: Background WebGL avec simulations fluides complètes
+- Intégration parfaite dans index.html pour production
+- Scripts LiquidEther.js avec toutes les simulations WebGL
+- CSS LiquidEther.css optimisé pour affichage plein écran
+- Three.js r128 intégré via CDN pour performance
+- Initialisation robuste avec gestion d'erreurs
 
 🚀 LIQUID ETHER v2.0 - COMPOSANT REACT:
 - Simulations WebGL: Advection, Viscous, Divergence, Poisson
