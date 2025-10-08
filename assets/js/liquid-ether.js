@@ -1016,7 +1016,15 @@ class LiquidEther {
       }
 
       init() {
-        this.props.$wrapper.prepend(Common.renderer.domElement);
+        const canvas = Common.renderer.domElement;
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '-1';
+        canvas.style.pointerEvents = 'none';
+        this.props.$wrapper.prepend(canvas);
         this.output = new Output();
       }
 
